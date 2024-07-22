@@ -11,7 +11,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/register', { username, email, password });
+      const response = await axios.post('https://mywebsite-3h4a.onrender.com/register', { username, email, password });
       if (response.data.message) {
         alert(response.data.message);
         navigate('/login');

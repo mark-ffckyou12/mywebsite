@@ -8,7 +8,7 @@ const Protected = () => {
     const fetchProtectedData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/protected', {
+        const response = await axios.get('https://mywebsite-3h4a.onrender.com/protected', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

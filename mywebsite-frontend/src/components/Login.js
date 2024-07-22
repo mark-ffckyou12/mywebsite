@@ -10,7 +10,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/login', { username, password });
+      const response = await axios.post('https://mywebsite-3h4a.onrender.com/login', { username, password });
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         alert(response.data.message);
