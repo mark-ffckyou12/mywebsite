@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -6,17 +7,17 @@ const cors = require('cors');
 
 const app = express();
 const pool = new Pool({
-  user: 'ffckyou12',
-  host: 'localhost',
-  database: 'mywebsite',
-  password: '0306Johndoe!?',
-  port: 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
 app.use(cors());
 app.use(express.json());
 
-const JWT_SECRET = 'your_jwt_secret_key';
+const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key';
 
 // Register User
 app.post('/register', async (req, res) => {
