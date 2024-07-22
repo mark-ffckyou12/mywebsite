@@ -19,7 +19,6 @@ app.use(express.json());
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key';
 
-// Register User
 app.post('/register', async (req, res) => {
   console.log(req.body); // Log the request body for debugging
   const { username, email, password } = req.body;
@@ -34,6 +33,7 @@ app.post('/register', async (req, res) => {
     );
     res.status(201).json({ message: 'Registration successful' });
   } catch (err) {
+    console.error('Error during registration:', err.message); // Log the error message for debugging
     res.status(400).json({ error: err.message });
   }
 });
